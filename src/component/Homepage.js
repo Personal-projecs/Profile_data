@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Card from "./Card";
 import Navbar from "./Navbar";
 
 const Homepage = () => {
@@ -21,7 +22,7 @@ const Homepage = () => {
   return (
     <>
       <Navbar setsearchdata={setsearchdata} setsearch={setsearch} />
-      <div className="lg:grid-col-4 md:grid-col-3 sm:grid-col-2 sm:grid-cols-1">
+      <div className="grid grid-cols-3 gap-4  mx-24 mt-4 border-2">
         {moviedata
           ?.filter((movie) => {
             if (searchdata === "") {
@@ -33,7 +34,7 @@ const Homepage = () => {
             }
           })
           .map((movie) => {
-            return <h1>{movie.name.first}</h1>;
+            return <Card image={movie.picture.medium}/>;
           })}
       </div>
     </>
